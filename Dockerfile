@@ -1,6 +1,8 @@
-FROM node:14
-WORKDIR /src
-COPY ./src/App.js /app        
+FROM node:alpine
+WORKDIR /app
+COPY package.json .
 RUN npm install
+COPY . .
+RUN npm run build
 EXPOSE 8080
-CMD ["node","App.js"]
+CMD ["npm", "run", "start"]
