@@ -1,0 +1,13 @@
+kind: Pod  
+apiVersion: v1    
+metadata:
+  name: webapp 
+  namespace: production   
+  labels:  
+    app: webapp  
+spec:
+  containers:
+  - name: web
+    image: ogochukwuozotta/nodejs  
+    ports:
+    - containerPort: 8080 
