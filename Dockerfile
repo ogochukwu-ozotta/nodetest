@@ -1,8 +1,14 @@
-FROM node:14.15.1
-WORKDIR /app  
-COPY ["package.json", "package-lock.json*", "./"]
+FROM node:14-alpine
+
+WORKDIR /app
+
+COPY . ./
+ENV CI=true
+ENV PORT=8080
 RUN npm install
+RUN npm run lint
+RUN npm install --save-dev --save-exact prettier
+RUN npm run prettier
+RUN npm run test
 RUN npm run build
-COPY . /app
-EXPOSE 8080
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]
