@@ -1,4 +1,4 @@
-import IPv4Addr from "./src/IPv4Addr";
+import IPv4Addr from "./IPv4Addr";
 import "./App.css";
 
 function App() {
