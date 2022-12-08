@@ -1,6 +1,7 @@
-FROM node:10
-WORKDIR /usr/app
-COPY . .
+FROM node:14.15.1
+WORKDIR /app  
+COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
+COPY . /app
 EXPOSE 8080
-CMD ["node","App.js"]
+CMD [ "npm", "start" ]
