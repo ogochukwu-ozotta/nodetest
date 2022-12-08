@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:bullseye-slim
 WORKDIR /src
 COPY . .        
 RUN npm install
