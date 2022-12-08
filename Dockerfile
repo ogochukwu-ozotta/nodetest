@@ -1,6 +1,8 @@
-FROM node:10
-WORKDIR /src
-COPY . .        
+FROM node:alpine
+WORKDIR /app
+COPY package.json .       
 RUN npm install
+COPY . . 
 EXPOSE 8080
-CMD ["npm", "run", "build", "start"]
+RUN npm run build
+CMD ["npm", "run", "start"]
