@@ -1,7 +1,6 @@
-FROM node:bullseye-slim
-WORKDIR /src
-COPY . .        
+FROM node:10
+WORKDIR /usr/app
+COPY . .
 RUN npm install
 EXPOSE 8080
-ENTRYPOINT ["npm", "run", "build", "start"]
-CMD ["node","App.js"]
+CMD ["node","app.js"]
